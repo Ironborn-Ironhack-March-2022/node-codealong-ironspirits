@@ -12,17 +12,17 @@ app.use(express.static('public'));
 /* Routes */
 
 app.get("/", (req, res, next)=>{
-    res.sendFile(__dirname + '/views/home.html');
+    res.render("home");
 });
 
 
 app.get("/about", (req, res, next) => {
-    res.sendFile(__dirname + '/views/about.html');
+    res.render("about");
 });
 
 
 app.get("/contact", (req, res, next) => {
-    res.sendFile(__dirname + '/views/contact.html');
+    res.render("contact");
 });
 
 
