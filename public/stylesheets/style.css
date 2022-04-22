@@ -7,8 +7,9 @@ img {
     max-width: 50vw;
 }
 
-.product {
+.product, .form-container {
     margin: 2rem;
     padding: 2rem;
     border: 1px solid #666;
 }
+
