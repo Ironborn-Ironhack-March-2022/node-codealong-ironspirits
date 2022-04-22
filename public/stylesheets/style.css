@@ -1,8 +1,14 @@
 body {
     text-align: center;
-    background-color: yellowgreen;
+    background-color: rgb(208, 230, 236);
 }
 
 img {
     max-width: 50vw;
+}
+
+.product {
+    margin: 2rem;
+    padding: 2rem;
+    border: 1px solid #666;
 }
