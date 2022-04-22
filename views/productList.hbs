@@ -3,6 +3,7 @@
 {{#each products}}
     <section class="product">
         <h2>{{this.title}}</h2>
+        <h4>Price: {{this.price}}€</h4>
         <a href="/products/{{this._id}}">More details</a>
     </section>
 {{/each }}
