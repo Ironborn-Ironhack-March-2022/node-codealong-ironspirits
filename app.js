@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const Product = require('./models/Product.model');
 const app = express();
 
@@ -7,7 +8,7 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
 
 app.use(express.static('public'));
-
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Connect to DB */
 mongoose
@@ -62,6 +63,23 @@ app.get("/products/:productId", (req, res, next) => {
 })
 
 
+app.post("/products/new", (req, res, next) => {
+
+    const newProduct = {
+        title: req.body.title,
+        price: req.body.price
+    };
+
+    Product.create(newProduct)
+        .then( newProduct => {
+            res.redirect("/products"); //redirect to the products page
+        })
+        .catch(error => {
+            console.log("error creating new product", error);
+            res.redirect("/"); //@todo: display a nice error msg
+        });
+
+})
 
 
 app.listen(3001, () => {
