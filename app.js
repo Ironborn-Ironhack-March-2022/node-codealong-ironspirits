@@ -34,6 +34,14 @@ app.get("/contact", (req, res, next) => {
 });
 
 
+app.get("/products", (req, res, next) => {
+    Product.find()
+        .then( productsArr => {
+            res.render("productList", {products: productsArr} );
+        })
+        .catch( error => console.log("error getting products from DB", error) );
+})
+
 
 app.get("/products/:productId", (req, res, next) => {
     Product.findById(req.params.productId)
