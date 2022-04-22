@@ -35,35 +35,13 @@ app.get("/contact", (req, res, next) => {
 
 
 
-
-app.get("/limoncello", (req, res, next) => {
-    Product.findOne({ title: "Limoncello" })
+app.get("/products/:productId", (req, res, next) => {
+    Product.findById(req.params.productId)
         .then(productDetails => {
             res.render("product", productDetails);
         })
         .catch(error => console.log("error getting product from DB", error));
-});
-
-
-app.get("/whisky", (req, res, next) => {
-    Product.findOne({ title: "Single Malt Whisky Yamakazi" })
-        .then(productDetails => {
-            res.render("product", productDetails);
-        })
-        .catch(error => console.log("error getting product from DB", error));
-});
-
-
-app.get("/tequila", (req, res, next) => {
-    Product.findOne({ title: "Tequila Don Julio" })
-        .then(productDetails => {
-            res.render("product", productDetails);
-        })
-        .catch(error => console.log("error getting product from DB", error));
-});
-
-
-
+})
 
 
 
